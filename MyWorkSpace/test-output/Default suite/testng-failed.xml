@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="org.Simple.MyWorkSpace.Testapi">
+      <class name="org.Simple.MyWorkSpace.TestBasic">
         <methods>
-          <include name="getUser"/>
+          <include name="launch"/>
         </methods>
-      </class> <!-- org.Simple.MyWorkSpace.Testapi -->
+      </class> <!-- org.Simple.MyWorkSpace.TestBasic -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

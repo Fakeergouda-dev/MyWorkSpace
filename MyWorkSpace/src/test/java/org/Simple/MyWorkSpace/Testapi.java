@@ -7,6 +7,8 @@ import io.restassured.http.ContentType;
 import static io.restassured.RestAssured.*;
 import static io.restassured.matcher.RestAssuredMatchers.*;
 import org.hamcrest.Matchers.*;
+import org.json.JSONObject;
+
 import static org.hamcrest.core.IsEqual.*;
 import static org.testng.Assert.assertEquals;
 
@@ -18,7 +20,7 @@ import org.testng.Assert;
 
 public class Testapi {
 	
-	@Test
+	//@Test
 	public void getUser()
 	{
 		
@@ -37,15 +39,17 @@ public class Testapi {
 		Assert.assertTrue(lst.contains("michael.lawson@reqres.in"), "Matched");
 	}
 	
+	// Add data using hashmapr 
 	//@Test
-	public void createUser()
+	public void createUserwithHashmap()
 	{
 		HashMap<String, String> hmp=new HashMap<String, String>();
 		hmp.put("name", "Jane");
 		hmp.put("job", "Teacher");
 		
 		given()
-		.header("Content-Type", "application/json").contentType(ContentType.JSON).accept(ContentType.JSON)
+		.header("x-api-key", "reqres-free-v1")
+		.contentType("application/json")
 		.body(hmp)
 		.when()
 		.post("https://reqres.in/api/users")
@@ -54,5 +58,23 @@ public class Testapi {
 		.log().all();
 		
 	}
+	// Add data using json.org 
+		@Test
+		public void createUserwithJsonObj()
+		{
+			JSONObject data=new JSONObject();
+			data.putOnce("name", "Ruth");
+			data.put("job", "MD");
+			given()
+			.header("x-api-key", "reqres-free-v1")
+			.contentType("application/json")
+			.body(data)
+			.when()
+			.post("https://reqres.in/api/users")
+			.then()
+			.statusCode(201)
+			.log().all();
+			
+		}
 
 }
