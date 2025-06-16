@@ -124,6 +124,14 @@
     <version>7.21.1</version>
     <scope>test</scope>
 </dependency>
+
+<!-- https://mvnrepository.com/artifact/net.java.dev.jna/jna-platform -->
+<dependency>
+    <groupId>net.java.dev.jna</groupId>
+    <artifactId>jna-platform</artifactId>
+    <version>5.16.0</version>
+</dependency>
+
 <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-jvm-deps -->
 <dependency>
     <groupId>io.cucumber</groupId>
